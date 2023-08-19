@@ -4,14 +4,9 @@ import "../App.css";
 import { remove } from "../features/cartSlice";
 
 export default function Cart() {
-  const products = useSelector((state) => state.cart);
+  const products = useSelector((state) => state.Allcart.cart);
   const dispatch = useDispatch();
-  // console.log("cart", products);
 
-  const handleRemoveProduct = (id) => {
-    dispatch(remove(id));
-    // console.log("product id", id);
-  };
   return (
     <div>
       <h1>Cart</h1>
@@ -23,7 +18,7 @@ export default function Cart() {
 
           <button
             className="btn btn-danger"
-            onClick={() => handleRemoveProduct(data.id)}
+            onClick={() => dispatch(remove(data.id))}
           >
             remove to Cart
           </button>

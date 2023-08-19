@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Header() {
-  const items = useSelector((state) => state.cart);
+  const items = useSelector((state) => state.Allcart.cart);
   console.log("navbar data", items);
   return (
     <Navbar collapseOnSelect expand="md" className="bg-body-tertiary">

@@ -5,7 +5,7 @@ import productSlice from "../features/productSlice";
 
 const store = configureStore({
   reducer: {
-    cart: cartSlice,
+    Allcart: cartSlice,
     product: productSlice,
   },
 });
