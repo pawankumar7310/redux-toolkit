@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { add, remove } from "../features/cartSlice";
+import { add, getCartTotal, remove } from "../features/cartSlice";
 import { fetchProducts } from "../features/productSlice";
 import { STATUSES } from "../features/productSlice";
 
@@ -17,18 +17,15 @@ export default function Home() {
   let cartList = product?.map((data1) =>
     items.some((item2) => item2?.id === data1?.id)
   );
-
+  // Api call
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  // const handleAddProduct = (data) => {
-  //   dispatch(add(data));
-  // };
-  // const handleRemoveProduct = (id) => {
-  //   dispatch(remove(id));
-  // console.log("product id", id);
-  // };
+  // change items
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [items]);
 
   if (status === STATUSES.LOADING) {
     return <h1 className="text-center">Loading......</h1>;

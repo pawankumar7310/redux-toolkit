@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 function Header() {
   const items = useSelector((state) => state.Allcart.cart);
+  const cartCount = useSelector((state) => state.Allcart.totalQuantity);
+
   console.log("navbar data", items);
   return (
     <Navbar collapseOnSelect expand="md" className="bg-body-tertiary">
@@ -25,7 +27,7 @@ function Header() {
               Home
             </Link>
             <Link className="nav-link" to="cart">
-              Cart {items.length}
+              Cart {cartCount}
             </Link>
           </Nav>
         </Navbar.Collapse>
